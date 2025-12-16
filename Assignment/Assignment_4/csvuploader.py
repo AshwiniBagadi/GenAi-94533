@@ -16,6 +16,9 @@ if "page" not in st.session_state:
 if "login" not in st.session_state:
     st.session_state.login=False
 
+if "file" not in st.session_state:
+    st.session_state.file=[]
+
 def home_page():
     if st.session_state.login==True:
         st.subheader("Upload csv files")
@@ -37,7 +40,10 @@ def register():
         with st.form("Login"):
             username=st.text_input("username")
             password=st.text_input("Password", type="password")
+            fname=st.text_input("First name")
+            fname=st.text_input("First name")
             submit=st.form_submit_button("Submit")
+
 
 
 with st.sidebar:
