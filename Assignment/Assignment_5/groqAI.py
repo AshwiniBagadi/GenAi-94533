@@ -1,0 +1,29 @@
+# 2. ⁠Connect to Groq and Gemini AI using REST api. Send same prompt and compare results. Also compare the speed.
+
+import os
+import requests
+import json
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key=os.getenv("groq_api")
+url="https://api.groq.com/openai/v1/chat/completions"
+
+headers={
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"
+}
+
+user_prompt=input("Ask Anything: ")
+req_data={
+    "model": "llama-3.3-70b-versatile",
+    "messages": [
+        {"role":"user","content":user_prompt}
+    ],
+}
+
+response=requests.post(url,data=json.dumps(req_data),headers=headers)
+print("Status: ", response.status_code)
+print(response.json())
+
