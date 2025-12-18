@@ -2,7 +2,6 @@
 # Get current weather from weather API.
 # Ask LLM to explain the weather in English.
 
-import streamlit as st
 import os
 import requests
 from langchain.chat_models import init_chat_model
@@ -10,7 +9,6 @@ from langchain.chat_models import init_chat_model
 from dotenv import load_dotenv
 
 load_dotenv()
-
 
 llm = init_chat_model(
     model = "llama-3.3-70b-versatile",
